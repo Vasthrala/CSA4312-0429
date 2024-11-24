@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Room Selection Form</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background: url('C:/Online Hotel Booking/pic3.jpg') no-repeat center center/cover;
+background-attachment: fixed;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+color: #333;
+}
+
+.form-container {
+background: rgba(255, 255, 255, 0.9);
+padding: 20px 30px;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+width: 100%;
+max-width: 600px;
+}
+
+h2 {
+margin-bottom: 20px;
+color: #333333;
+text-align: center;
+}
+
+label {
+display: block;
+margin: 10px 0 5px;
+color: #555555;
+}
+input, select, button {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #cccccc;
+border-radius: 4px;
+font-size: 14px;
+}
+
+button {
+background-color: #4CAF50;
+color: white;
+border: none;
+cursor: pointer;
+font-weight: bold;
+}
+
+button:hover {
+background-color: #45a049;
+}
+
+.checkbox-group {
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+ </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Room Selection Form</h2>
+        <form id="roomSelectionForm" onsubmit="return handleRoomSelection()">
+            <!-- Available Room List -->
+            <label for="availableRooms">Available Rooms</label>
+            <select id="availableRooms" name="availableRooms" required>
+                <option value="" disabled selected>Select a Room</option>
+                <option value="single">Single Room - $50/night</option>
+                <option value="double">Double Room - $90/night</option>
+                <option value="suite">Suite - $150/night</option>
+                <option value="deluxe">Deluxe Room - $200/night</option>
+            </select>
+
+            <!-- Room Preferences -->
+            <label for="preferences">Room Preferences</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="preferences" value="non-smoking"> Non-Smoking</label>
+                <label><input type="checkbox" name="preferences" value="sea-view"> Sea View</label>
+                <label><input type="checkbox" name="preferences" value="mountain-view"> Mountain View</label>
+            </div>
+
+            <!-- Additional Add-ons -->
+            <label for="addons">Additional Add-ons</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="addons" value="extra-bed"> Extra Bed ($20/night)</label>
+                <label><input type="checkbox" name="addons" value="meal-plan"> Meal Plan ($30/night)</label>
+                <label><input type="checkbox" name="addons" value="airport-shuttle"> Airport Shuttle ($50)</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Proceed to Compare</button>
+        </form>
+    </div>
+    <script>
+        function handleRoomSelection() {
+            const selectedRoom = document.getElementById("availableRooms").value;
+
+            if (!selectedRoom) {
+                alert("Please select a room before proceeding.");
+                return false;
+            }
+
+            alert("Room selection successful! Redirecting to compare...");
+            window.location.href = "compare.html"; // Redirect to the compare page
+            return false; // Prevent default form submission
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Booking System</title>
+  <style>
+    /* General Reset */
+    body, h1, h2, p, ul, li, a {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Body Background */
+    body {
+      background: url('C:/Online Hotel Booking/pic4.jpg') no-repeat center center/cover;
+      background-attachment: fixed; /* Ensures the background stays fixed during scrolling */
+      color: #fff; /* Default text color for readability on dark backgrounds */
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay for header */
+      color: #fff;
+      padding: 1em 2em;
+    }
+
+    /* Header Logo */
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    /* Header Navigation */
+    header nav ul {
+      display: flex;
+      gap: 1em;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5em 1em;
+      height: 100vh; /* Full viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for hero section */
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 2em;
+      background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay for better readability */
+    }
+
+    .services h2 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1em;
+    }
+
+    .service {
+      background: rgba(255, 255, 255, 0.8); /* Light overlay for service cards */
+      color: #000;
+      text-align: center;
+      padding: 1em;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .service:hover {
+      background: rgba(255, 255, 255, 1); /* Slightly brighter on hover */
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1em;
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay for footer */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Hotel Booking System</div>
+    <nav>
+      <ul>
+        <li><a href="#Services">Services</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to the Online Hotel Booking System</h1>
+    <p>Book your stay at the best hotels effortlessly.</p>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-list">
+      <a href="registration.html" class="service">Registration Form</a>
+      <a href="login.html" class="service">Login Form</a>
+      <a href="seach.html" class="service">Search and Filter</a>
+      <a href="availability.html" class="service">Room Availability Check</a>
+      <a href="selection.html" class="service">Room Selection</a>
+      <a href="compare.html" class="service">Room Comparison</a>
+      <a href="discount.html" class="service">Discount/Promo Code</a>
+      <a href="booking.html" class="service">Booking Form</a>
+      <a href="guest.html" class="service">Guest Details</a>
+      <a href="itinerary.html" class="service">Itinerary Details</a>
+      <a href="payment.html" class="service">Payment Form</a>
+      <a href="confirmation.html" class="service">Booking Confirmation</a>
+      <a href="feedback.html" class="service">Feedback Form</a>
+      <a href="dashboard.html" class="service">User Dashboard</a>
+      <a href="cancel.html" class="service">Cancellation/Modifications</a>
+      <a href="refund.html" class="service">Refund Request</a>
+      <a href="admin.html" class="service">Admin Management System</a>
+      <a href="hotel_feedback.html" class="service">Hotel Feedback</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Online Hotel Booking System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Add interactivity if needed in the future
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Welcome to the Online Hotel Booking System!");
+    });
+  </script>
+</body>
+</html>

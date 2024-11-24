@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('file:///C:/Online%20Hotel%20Booking/pic8.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .booking-form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.8); /* Translucent white background */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="booking-form-container">
+        <h1>Room Booking Form</h1>
+        <form id="bookingForm">
+            <fieldset>
+                <legend>Selected Room Details</legend>
+                <label for="roomType">Room Type:</label>
+                <select id="roomType" name="roomType" required>
+                    <option value="">Select Room Type</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Suite">Suite</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Guest Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="0" required>
+
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Payment Options</legend>
+                <label for="payment">Payment Method:</label>
+                <select id="payment" name="payment" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="Credit/Debit Card">Credit/Debit Card</option>
+                    <option value="UPI/Wallets">UPI/Wallets</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Special Requests/Notes</legend>
+                <textarea id="specialRequests" name="specialRequests" placeholder="Optional"></textarea>
+            </fieldset>
+
+            <button type="submit" id="submitBtn">Submit Booking</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Gather form data (optional - for debugging or server processing)
+            const formData = {
+                roomType: document.getElementById('roomType').value,
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                contact: document.getElementById('contact').value,
+                payment: document.getElementById('payment').value,
+                specialRequests: document.getElementById('specialRequests').value,
+            };
+            console.log("Form Data Submitted:", formData);
+
+            // Redirect to the next page
+            window.location.href = 'guest.html';
+        });
+    </script>
+</body>
+</html>

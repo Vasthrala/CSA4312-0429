@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Hotel Management Form</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Admin Hotel Management Form</h1>
+        <form id="hotelForm">
+            <!-- Hotel Name -->
+            <div class="form-group">
+                <label for="hotelName">Hotel Name:</label>
+                <input type="text" id="hotelName" name="hotelName" required>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+
+            <!-- Room Types and Prices -->
+            <div class="form-group">
+                <label for="roomTypes">Room Types and Prices:</label>
+                <textarea id="roomTypes" name="roomTypes" rows="4" placeholder="e.g., Deluxe - $200/night" required></textarea>
+            </div>
+
+            <!-- Amenities -->
+            <div class="form-group">
+                <label for="amenities">Amenities:</label>
+                <textarea id="amenities" name="amenities" rows="4" placeholder="e.g., Wi-Fi, Pool, Gym" required></textarea>
+            </div>
+
+            <!-- Images Upload -->
+            <div class="form-group">
+                <label for="images">Upload Images:</label>
+                <input type="file" id="images" name="images" multiple accept="image/*" required>
+            </div>
+
+            <!-- Availability Calendar -->
+            <div class="form-group">
+                <label for="availability">Availability Calendar:</label>
+                <input type="date" id="availability" name="availability" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Save and Proceed</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Handle Form Submission
+document.getElementById("hotelForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const hotelName = document.getElementById("hotelName").value;
+    const address = document.getElementById("address").value;
+    const roomTypes = document.getElementById("roomTypes").value;
+    const amenities = document.getElementById("amenities").value;
+    const images = document.getElementById("images").files;
+    const availability = document.getElementById("availability").value;
+
+    console.log("Hotel Details Submitted:", {
+        hotelName,
+        address,
+        roomTypes,
+        amenities,
+        images,
+        availability,
+    });
+
+    // Redirect to hotel feedback page
+    alert("Hotel details have been saved. Redirecting to hotel feedback...");
+    window.location.href = "hotel_feedback.html";
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('file:///C:/Online%20Hotel%20Booking/pic10.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .itinerary-form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.8); /* Adding transparency to the background */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="itinerary-form-container">
+        <h1>Itinerary Details Form</h1>
+        <form id="itineraryForm">
+            <fieldset>
+                <legend>Stay Information</legend>
+                <label for="checkInTime">Check-in Time:</label>
+                <input type="time" id="checkInTime" name="checkInTime" required>
+
+                <label for="checkOutTime">Check-out Time:</label>
+                <input type="time" id="checkOutTime" name="checkOutTime" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Activities and Excursions</legend>
+                <label for="activities">Choose an Activity/Excursion:</label>
+                <select id="activities" name="activities" required>
+                    <option value="">Select an Activity</option>
+                    <option value="Spa">Spa</option>
+                    <option value="City Tour">City Tour</option>
+                    <option value="Hiking">Hiking</option>
+                    <option value="Beach Day">Beach Day</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Dining Preferences</legend>
+                <label for="dining">Dining Preference:</label>
+                <textarea id="dining" name="dining" placeholder="e.g., Vegetarian, Vegan, Gluten-Free" required></textarea>
+            </fieldset>
+
+            <button type="submit">Submit Itinerary</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('itineraryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect form data (optional - for debugging or server-side submission)
+            const itineraryDetails = {
+                checkInTime: document.getElementById('checkInTime').value,
+                checkOutTime: document.getElementById('checkOutTime').value,
+                activities: document.getElementById('activities').value,
+                dining: document.getElementById('dining').value,
+            };
+            console.log("Itinerary Details Submitted:", itineraryDetails);
+
+            // Redirect to the next page
+            window.location.href = 'payment.html';
+        });
+    </script>
+</body>
+</html>

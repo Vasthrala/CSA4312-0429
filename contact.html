@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Online Hotel Booking System</title>
+  <style>
+    /* General Reset */
+    body, h1, h2, p, ul, li, a, form {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: url('C:/Users/SIRISHA/OneDrive/Documents/main.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+      color: #fff;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 1em 2em;
+    }
+
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    header nav ul {
+      display: flex;
+      gap: 1.5em;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    header nav ul li a:hover {
+      color: #f0a500;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 2em;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .contact .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: url('C:/Online Hotel Booking/pic4.jpg') no-repeat center center/cover;
+      padding: 2em;
+      border-radius: 5px;
+      color: #000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact h1 {
+      text-align: center;
+      margin-bottom: 1em;
+      font-size: 2em;
+      color: #333;
+    }
+
+    .contact p {
+      line-height: 1.6;
+      margin-bottom: 1.5em;
+      text-align: center;
+    }
+
+    .contact .form-group {
+      margin-bottom: 1em;
+    }
+
+    .contact label {
+      display: block;
+      font-size: 1.1em;
+      margin-bottom: 0.5em;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 0.8em;
+      font-size: 1em;
+      margin-top: 0.3em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact textarea {
+      resize: vertical;
+    }
+
+    .contact button {
+      width: 100%;
+      padding: 1em;
+      background-color: #f0a500;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact button:hover {
+      background-color: #d88b00;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1em;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Hotel Booking System</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>If you have any questions or need assistance, feel free to reach out to us. We're here to help!</p>
+
+      <form id="contactForm" action="#" method="POST">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required placeholder="Your message" rows="5"></textarea>
+        </div>
+        <button type="submit" id="submitBtn">Send Message</button>
+      </form>
+      <p id="responseMessage"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Online Hotel Booking System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Handle the contact form submission
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Get the form data
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      // Simulate sending the data (replace with actual backend code as needed)
+      console.log("Message Sent!");
+      console.log(`Name: ${name}`);
+      console.log(`Email: ${email}`);
+      console.log(`Message: ${message}`);
+
+      // Show a success message
+      const responseMessage = document.getElementById("responseMessage");
+      responseMessage.textContent = "Thank you for your message! We'll get back to you soon.";
+      responseMessage.style.color = "green";
+
+      // Clear the form fields
+      document.getElementById("contactForm").reset();
+    });
+  </script>
+</body>
+</html>

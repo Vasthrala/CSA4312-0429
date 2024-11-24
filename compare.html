@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Room Comparison Form</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f4f4f9;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+
+.form-container {
+background: #ffffff;
+padding: 20px 30px;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+width: 100%;
+max-width: 600px;
+background-image: url('C:/Online Hotel Booking/pic3.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+color: white; /* To make text readable on the image */
+}
+
+h2 {
+margin-bottom: 20px;
+color: #ffffff;
+text-align: center;
+}
+
+label {
+display: block;
+margin: 10px 0 5px;
+color: #ffffff;
+}
+
+.checkbox-group {
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
+.comparison-result {
+margin-top: 20px;
+padding: 15px;
+background-color: rgba(255, 255, 255, 0.8);
+border: 1px solid #ddd;
+border-radius: 4px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 10px;
+}
+th, td {
+text-align: left;
+padding: 10px;
+border: 1px solid #ddd;
+}
+
+th {
+background-color: rgba(255, 255, 255, 0.8);
+}
+button {
+width: 100%;
+padding: 10px;
+background-color: #4CAF50;
+color: white;
+border: none;
+cursor: pointer;
+font-weight: bold;
+margin-top: 15px;
+}
+
+button:hover {
+background-color: #45a049;
+}
+</style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Room Comparison Form</h2>
+        <form id="roomComparisonForm" onsubmit="return handleComparison()">
+            <!-- Select Rooms -->
+            <label>Select Rooms to Compare</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="room" value="Single Room|50|Wi-Fi, TV|Available"> Single Room</label>
+                <label><input type="checkbox" name="room" value="Double Room|90|Wi-Fi, TV, Minibar|Available"> Double Room</label>
+                <label><input type="checkbox" name="room" value="Suite|150|Wi-Fi, TV, Minibar, Jacuzzi|Available"> Suite</label>
+                <label><input type="checkbox" name="room" value="Deluxe Room|200|Wi-Fi, TV, Jacuzzi, Sea View|Available"> Deluxe Room</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Compare Rooms</button>
+        </form>
+
+        <div id="comparisonResult" class="comparison-result" style="display: none;">
+            <h3>Comparison Result</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room Type</th>
+                        <th>Price (per night)</th>
+                        <th>Amenities</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function handleComparison() {
+            const selectedRooms = Array.from(document.querySelectorAll('input[name="room"]:checked'))
+                .map(room => room.value);
+
+            if (selectedRooms.length === 0) {
+                alert("Please select at least one room to compare.");
+                return false;
+            }
+
+            const tableBody = document.getElementById("comparisonTableBody");
+            tableBody.innerHTML = ""; // Clear previous results
+
+            selectedRooms.forEach(room => {
+                const [type, price, amenities, availability] = room.split("|");
+                const row = `<tr>
+                    <td>${type}</td>
+                    <td>$${price}</td>
+                    <td>${amenities}</td>
+                    <td>${availability}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+
+            document.getElementById("comparisonResult").style.display = "block";
+
+            setTimeout(() => {
+                alert("Redirecting to Discount Page...");
+                window.location.href = "discount.html";
+            }, 3000); // Delay redirect to let users view comparison
+
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>

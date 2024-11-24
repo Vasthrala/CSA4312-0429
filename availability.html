@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Room Availability Check</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ background: url("C:/Online Hotel Booking/pic2.jpg") no-repeat center center fixed;
+ background-size: cover;
+ }
+
+ .form-container {
+ background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for contrast */
+ padding: 20px 30px;
+ border-radius: 8px;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ width: 100%;
+ max-width: 500px;
+ }
+
+ h2 {
+ margin-bottom: 20px;
+ color: #333333;
+ text-align: center;
+ }
+
+ label {
+ display: block;
+ margin: 10px 0 5px;
+ color: #555555;
+ }
+ input, select, button {
+ width: 100%;
+ padding: 10px;
+ margin-bottom: 15px;
+ border: 1px solid #cccccc;
+ border-radius: 4px;
+ font-size: 14px;
+ }
+
+ button {
+ background-color: #4CAF50;
+ color: white;
+ border: none;
+ cursor: pointer;
+ font-weight: bold;
+ }
+
+ button:hover {
+ background-color: #45a049;
+ }
+
+ .filter-group {
+ display: flex;
+ justify-content: space-between;
+ gap: 10px;
+ }
+
+ .filter-group select {
+ flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Room Availability Check</h2>
+    <form id="availabilityForm" onsubmit="return handleAvailabilityCheck()">
+      <!-- Check-in Date -->
+      <label for="checkin">Check-in Date</label>
+      <input type="date" id="checkin" name="checkin" required>
+
+      <!-- Check-out Date -->
+      <label for="checkout">Check-out Date</label>
+      <input type="date" id="checkout" name="checkout" required>
+
+      <!-- Number of Guests -->
+      <label for="guests">Number of Guests</label>
+      <div class="filter-group">
+        <select id="adults" name="adults" required>
+          <option value="" disabled selected>Adults</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <select id="children" name="children">
+          <option value="" disabled selected>Children</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <!-- Room Type -->
+      <label for="roomType">Room Type</label>
+      <select id="roomType" name="roomType" required>
+        <option value="" disabled selected>Select Room Type</option>
+        <option value="single">Single</option>
+        <option value="double">Double</option>
+        <option value="suite">Suite</option>
+        <option value="deluxe">Deluxe</option>
+      </select>
+
+      <!-- Submit Button -->
+      <button type="submit">Check Availability</button>
+    </form>
+  </div>
+  <script>
+    function handleAvailabilityCheck() {
+      // Validate dates
+      const checkin = document.getElementById("checkin").value;
+      const checkout = document.getElementById("checkout").value;
+
+      if (new Date(checkin) >= new Date(checkout)) {
+        alert("Check-out date must be later than check-in date.");
+        return false;
+      }
+
+      alert("Checking room availability...");
+      window.location.href = "selection.html"; // Redirect to the room selection page
+      return false; // Prevent default form submission
+    }
+  </script>
+</body>
+</html>

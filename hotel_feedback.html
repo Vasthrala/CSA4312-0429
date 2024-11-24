@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Feedback Form</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('file:///C:/Online%20Hotel%20Booking/pic15.jpg');
+    background-size: contain; /* Ensures the full image fits without zooming */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the image fixed while scrolling */
+}
+
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hotel Feedback Form</h1>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="bookingId">Booking ID:</label>
+                <input type="text" id="bookingId" name="bookingId" placeholder="Enter your Booking ID" required>
+            </div>
+            <div class="form-group">
+                <label>Rating for Specific Aspects:</label>
+                <div>
+                    <label for="cleanliness">Cleanliness:</label>
+                    <select id="cleanliness" name="cleanliness" required>
+                        <option value="">Select</option>
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="staff">Staff:</label>
+                    <select id="staff" name="staff" required>
+                        <option value="">Select</option>
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="value">Value for Money:</label>
+                    <select id="value" name="value" required>
+                        <option value="">Select</option>
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="suggestions">Suggestions for Improvement:</label>
+                <textarea id="suggestions" name="suggestions" rows="4" placeholder="Your suggestions..."></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const bookingId = document.getElementById("bookingId").value;
+    const cleanliness = document.getElementById("cleanliness").value;
+    const staff = document.getElementById("staff").value;
+    const value = document.getElementById("value").value;
+    const suggestions = document.getElementById("suggestions").value;
+
+    if (!bookingId || !cleanliness || !staff || !value) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    const feedback = {
+        bookingId,
+        ratings: {
+            cleanliness,
+            staff,
+            value
+        },
+        suggestions
+    };
+
+    console.log("Feedback Submitted:", feedback);
+    alert("Thank you for your feedback!");
+    document.getElementById("feedbackForm").reset();
+});
+    </script>
+</body>
+</html>

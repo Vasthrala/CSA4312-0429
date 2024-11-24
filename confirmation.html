@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Booking Confirmation</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ background-color: #f8f8f8;
+ margin: 0;
+ padding: 0;
+}
+
+.confirmation-container {
+ max-width: 600px;
+ margin: 50px auto;
+ background: #ffffff;
+ border-radius: 8px;
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+ padding: 20px;
+}
+
+h1, h2 {
+ text-align: center;
+ color: #333;
+}
+
+.summary, .price, .guest-details {
+ margin-bottom: 20px;
+ padding: 15px;
+ border: 1px solid #ddd;
+ border-radius: 5px;
+}
+
+p {
+ margin: 10px 0;
+ font-size: 16px;
+ color: #555;
+}
+
+p strong {
+ color: #000;
+}
+
+button {
+ display: block;
+ width: 100%;
+ background-color: #4CAF50;
+ color: white;
+ padding: 10px;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 16px;
+ margin-top: 20px;
+}
+
+button:hover {
+ background-color: #45a049;
+}
+
+ </style>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <div class="confirmation-container">
+ <h1>Booking Confirmation</h1>
+ <div class="summary">
+ <h2>Booking Summary</h2>
+            <p><strong>Hotel Name:</strong> <span id="hotelName">Ocean View Resort</span></p>
+            <p><strong>Room Type:</strong> <span id="roomType">Deluxe Suite</span></p>
+            <p><strong>Check-in Date:</strong> <span id="checkInDate">2024-12-01</span></p>
+            <p><strong>Check-out Date:</strong> <span id="checkOutDate">2024-12-07</span></p>
+        </div>
+
+        <div class="price">
+            <h2>Total Price (including taxes)</h2>
+            <p><strong>Price:</strong> <span id="totalPrice">$1,200</span></p>
+        </div>
+
+        <div class="guest-details">
+            <h2>Guest Details</h2>
+            <p><strong>Name:</strong> <span id="guestName">John Doe</span></p>
+            <p><strong>Contact:</strong> <span id="guestContact">+1234567890</span></p>
+            <p><strong>Email:</strong> <span id="guestEmail">johndoe@example.com</span></p>
+        </div>
+
+        <button id="confirmBookingButton">Confirm Booking</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Sample data - replace with dynamic data from your backend or user input
+const bookingDetails = {
+    hotelName: "Ocean View Resort",
+    roomType: "Deluxe Suite",
+    checkInDate: "2024-12-01",
+    checkOutDate: "2024-12-07",
+    totalPrice: "$1,200",
+    guestName: "John Doe",
+    guestContact: "+1234567890",
+    guestEmail: "johndoe@example.com",
+};
+
+// Populate fields with booking details
+document.getElementById("hotelName").textContent = bookingDetails.hotelName;
+document.getElementById("roomType").textContent = bookingDetails.roomType;
+document.getElementById("checkInDate").textContent = bookingDetails.checkInDate;
+document.getElementById("checkOutDate").textContent = bookingDetails.checkOutDate;
+document.getElementById("totalPrice").textContent = bookingDetails.totalPrice;
+document.getElementById("guestName").textContent = bookingDetails.guestName;
+document.getElementById("guestContact").textContent = bookingDetails.guestContact;
+document.getElementById("guestEmail").textContent = bookingDetails.guestEmail;
+
+// Handle Confirm Booking button click
+document.getElementById("confirmBookingButton").addEventListener("click", function () {
+    alert("Your booking has been confirmed! Thank you.");
+    window.location.href = "feedback.html"; // Redirect to feedback page
+});
+
+    </script>
+</body>
+</html>

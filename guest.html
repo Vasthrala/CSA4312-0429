@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('file:///C:/Online%20Hotel%20Booking/pic9.jpg'); /* Background Image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .guest-form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="guest-form-container">
+        <h1>Guest Details Form</h1>
+        <form id="guestDetailsForm">
+            <fieldset>
+                <legend>Guest Information</legend>
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{10}" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Identification Details</legend>
+                <label for="idType">ID Type:</label>
+                <select id="idType" name="idType" required>
+                    <option value="">Select ID Type</option>
+                    <option value="Passport">Passport</option>
+                    <option value="Driver's License">Driver's License</option>
+                    <option value="National ID">National ID</option>
+                </select>
+
+                <label for="idNumber">ID Number:</label>
+                <input type="text" id="idNumber" name="idNumber" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Special Requests</legend>
+                <textarea id="specialRequests" name="specialRequests" placeholder="e.g., Late Check-In, Accessibility Needs"></textarea>
+            </fieldset>
+
+            <button type="submit">Submit Guest Details</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('guestDetailsForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Gather form data (optional - for debugging or server-side submission)
+            const guestDetails = {
+                fullName: document.getElementById('fullName').value,
+                contactNumber: document.getElementById('contactNumber').value,
+                email: document.getElementById('email').value,
+                idType: document.getElementById('idType').value,
+                idNumber: document.getElementById('idNumber').value,
+                specialRequests: document.getElementById('specialRequests').value,
+            };
+            console.log("Guest Details Submitted:", guestDetails);
+
+            // Redirect to the next form or page
+            window.location.href = 'itinerary.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellation/Modification Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('file:///C:/Online%20Hotel%20Booking/pic12.jpg'); /* Local file path */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            background-size: contain; /* Ensure the image is not zoomed */
+            background-attachment: fixed; /* Keep the background fixed during scroll */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Cancellation/Modification Form</h1>
+        <form id="cancelForm">
+            <!-- Booking ID -->
+            <div class="form-group">
+                <label for="bookingId">Booking ID:</label>
+                <input type="text" id="bookingId" name="bookingId" required>
+            </div>
+
+            <!-- Email/Phone -->
+            <div class="form-group">
+                <label for="contact">Email/Phone Number:</label>
+                <input type="text" id="contact" name="contact" required>
+            </div>
+
+            <!-- Reason for Cancellation -->
+            <div class="form-group">
+                <label for="reason">Reason for Cancellation (optional):</label>
+                <textarea id="reason" name="reason" rows="4"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Proceed</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Handle Form Submission
+        document.getElementById("cancelForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const bookingId = document.getElementById("bookingId").value;
+            const contact = document.getElementById("contact").value;
+            const reason = document.getElementById("reason").value;
+
+            console.log("Cancellation Details:", { bookingId, contact, reason });
+
+            // Show confirmation and redirect to refund page
+            alert("Your request has been submitted. Redirecting to refund details...");
+            window.location.href = "refund.html";
+        });
+    </script>
+</body>
+</html>
